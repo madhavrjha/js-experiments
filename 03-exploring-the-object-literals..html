@@ -1,0 +1,76 @@
+<!-- 
+    Author: Madhav R. Jha
+    Creation Time: 14th March 2022
+    Reason: Exploring The Object Literals
+
+    What the Programs Do
+    --------------------
+
+     - In Explores
+     - How easy it is to Create Object when Property Name & Variable Name are Equal
+     - How can we use Variable's Value to Create Object Property
+
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exploring The Object Literals</title>
+</head>
+<body>
+    <script>
+        
+        // [Program - 01]
+        // When Propery and Variable name are same
+        
+        const name = "John Doe";
+        const age = 23;
+        const mail = ['john24doe@gmail.com', 'doejohn@gmail.com', 'johndoe@gmail.com'];
+
+        const user = {
+            name, age, mail,
+            phone: {
+                countryCode: '+91',
+                number: '874532759'
+            },
+            getIntro() {
+                return `am ${this.name}, ${this.age} years old, has ${this.mail.length} mail id and you can whatsapp me at ${this.phone.countryCode}-${this.phone.number}`;
+            }
+        }
+
+        console.log(user);
+        console.log(user.getIntro());
+
+        // [Program - 02]
+        // Using Varibles Value as Property Name
+
+        const dynamicPropertyFields = ['application_id', 'admission_no', 'student_id', 'class_id', 'generate_unique_id'];
+
+        const selectedStudent = {
+            [dynamicPropertyFields[0]]: '293',
+            [dynamicPropertyFields[1]]: '293',
+            [dynamicPropertyFields[2]]: '9781',
+            [dynamicPropertyFields[3]]: '12',
+            [dynamicPropertyFields[4]]() {
+                return `${this[dynamicPropertyFields[0]]}-${this[dynamicPropertyFields[1]]}-${this[dynamicPropertyFields[2]]}-${this[dynamicPropertyFields[3]]}`
+            }
+        }
+
+        console.log(selectedStudent);
+        console.log(selectedStudent[dynamicPropertyFields[4]]());
+
+        // [Program - 03]
+        // Returning Objects of Parameters 
+
+        function getStudentsAsObject(name, age, gender, course) {
+            return {name, age, gender, course};
+        }
+
+        console.log(getStudentsAsObject('Madhav Jha', 23, 'Male', 'BSCIT'));
+
+    </script>
+</body>
+</html>
