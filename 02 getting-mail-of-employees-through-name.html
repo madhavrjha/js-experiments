@@ -1,0 +1,39 @@
+<!-- 
+    Author: Madhav R. Jha
+    Creation Time: 14th March 2022
+    Reason: Enjoying the Map Method & Spread Operator at JavaScript
+
+    What the Programs Do
+    --------------------
+
+     - first of all, it creates two arrays of Employees & then Merge It into one
+     - then, sort the arrays & return the corresponding E-Mail via Map Method
+
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emjoying Map Function & Spread Operator</title>
+</head>
+<body>
+    <script>
+        const employeesFromOffice = ['Madhav', 'Alok', 'Amit', 'Deependra', 'Monika', 'Pratik', 'Sayli', 'Ankita', 'Diksha', 'Nikita'];
+        const employeesFromHome = ['Roushan', 'Vinod', 'Vipin', 'Sunil', 'Amir'];
+
+        const totalEmployees = [...employeesFromHome, ...employeesFromOffice];
+        totalEmployees.sort();
+        
+        const totalMailId = totalEmployees.map(employeeName => {
+            const employeeEmailId = employeeName.toLowerCase().concat('@gmail.com');
+            return employeeEmailId;
+        });
+
+        console.log(totalMailId);
+        
+    </script>
+</body>
+</html>
